@@ -41,12 +41,14 @@ public class CoinedWordAdapter extends RecyclerView.Adapter<CoinedWordAdapter.Vi
         private TextView word;
         private TextView detail;
         private TextView writer;
+        private TextView dataTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             word = itemView.findViewById(R.id.word_item);
             detail = itemView.findViewById(R.id.detail_item);
             writer = itemView.findViewById(R.id.writer_item);
+            dataTime = itemView.findViewById(R.id.dataTime);
             Log.e(TAG, "ViewHolder: 호출됨");
         }
 
@@ -55,6 +57,7 @@ public class CoinedWordAdapter extends RecyclerView.Adapter<CoinedWordAdapter.Vi
             word.setText(item.getWord());
             detail.setText(item.getDetail());
             writer.setText(item.getWriter());
+            dataTime.setText("등록일 : "+item.getDatatime());
         }
     }
 }

@@ -88,7 +88,7 @@ public class CoinedWordFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 onAddClickListener.addOnclick();
-                Log.d(TAG, "onClick: 추가 버튼 클릭됨");
+                Log.d(TAG, "onClick: 추가 버튼 클릭");
             }
         });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -118,6 +118,25 @@ public class CoinedWordFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return true;
+            }
+        });
+    }
+    public void startShowData(){
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<CoinedWordPojoClass> call = apiInterface.searchCoinedWord("나무");
+        call.enqueue(new Callback<CoinedWordPojoClass>() {
+            @Override
+            public void onResponse(Call<CoinedWordPojoClass> call, Response<CoinedWordPojoClass> response) {
+                if(response.isSuccessful()){
+                    Log.d(TAG, "onResponse: "+response);
+                    adapter.setList((ArrayList<CoinedWordPojoClass.Data>) response.body().getData());
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CoinedWordPojoClass> call, Throwable t) {
+                Log.d(TAG, "onFailure: "+t);
             }
         });
     }

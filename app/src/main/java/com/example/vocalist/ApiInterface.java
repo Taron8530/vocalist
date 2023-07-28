@@ -15,6 +15,9 @@ public interface ApiInterface {
     Call<CoinedWordPojoClass> searchCoinedWord(
             @Query("search") String word
     );
+    @GET("WordLoad.php")
+    Call<CoinedWordPojoClass> searchCoinedShowWord(
+    );
     @GET("WordAdd.php")
     Call<String> wordAdd(
       @Query("word") String word,

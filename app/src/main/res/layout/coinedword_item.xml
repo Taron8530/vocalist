@@ -36,5 +36,13 @@
             android:gravity="right"
             android:padding="10dp"
             android:text="TextView" />
+
+        <TextView
+            android:id="@+id/dataTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="right"
+            android:text="TextView" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

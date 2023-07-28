@@ -24,6 +24,9 @@ public class CoinedWordPojoClass {
         @Expose
         @SerializedName("writer")
         private String writer;
+        @Expose
+        @SerializedName("datatime")
+        private String datatime;
 
         public String getDetail() {
             return detail;
@@ -35,6 +38,9 @@ public class CoinedWordPojoClass {
 
         public String getWriter() {
             return writer;
+        }
+        public String getDatatime(){
+            return datatime;
         }
     }
 }

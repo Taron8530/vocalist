@@ -50,6 +50,7 @@ public class SearchWordFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initView();
         initListener();
+        startShowData();
     }
     public void initView(){
         searchView = root.findViewById(R.id.searchView_SearchWordFragment);
@@ -97,6 +98,25 @@ public class SearchWordFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return true;
+            }
+        });
+    }
+    public void startShowData(){
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<WordPojoClass> call = apiInterface.searchWord(getResources().getString(R.string.wordApiKey),"사람","json");
+        call.enqueue(new Callback<WordPojoClass>() {
+            @Override
+            public void onResponse(Call<WordPojoClass> call, Response<WordPojoClass> response) {
+                if(response.isSuccessful()){
+                    Log.d(TAG, "onResponse: "+response.body().getChannel().getItems().get(0).getSense().getDefinition());
+                    adapter.setList((ArrayList<WordPojoClass.Item>) response.body().getChannel().getItems());
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<WordPojoClass> call, Throwable t) {
+                Log.d(TAG, "onFailure: "+t);
             }
         });
     }
