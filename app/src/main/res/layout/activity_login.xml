@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity">
+
+
+    <EditText
+        android:id="@+id/idEdit_loginActivity"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:hint="아이디를 입력하세요"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/pwEdit_loginActivity"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/pwEdit_loginActivity"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:hint="비밀번호를 입력하세요"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginOk_loginActivity"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginOk_loginActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/main"
+        android:fontFamily="@font/mainfont"
+        android:padding="10dp"
+        android:text="로그인하기"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/signUp_loginActivity"
+        app:layout_constraintEnd_toEndOf="@id/loginOk_loginActivity"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/signUp_loginActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:fontFamily="@font/subfont"
+        android:padding="10dp"
+        android:text="회원가입하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/idView_loginActivity"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/mainfont"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="ID"
+        app:layout_constraintBottom_toTopOf="@+id/pwView_loginActivity"
+        app:layout_constraintEnd_toStartOf="@+id/idEdit_loginActivity"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/pwView_loginActivity"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/mainfont"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="PW"
+        app:layout_constraintBottom_toTopOf="@+id/loginOk_loginActivity"
+        app:layout_constraintEnd_toStartOf="@+id/pwEdit_loginActivity"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="281dp"
+        android:layout_height="272dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/idEdit_loginActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

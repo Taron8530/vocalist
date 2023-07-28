@@ -9,7 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class MyPageFragment extends Fragment {
-
+    String email;
+    String nickName;
+    MyPageFragment(String email,String nickname){
+        nickName = nickname;
+        this.email = email;
+    }
+    MyPageFragment(){}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -32,10 +32,15 @@ public class WordAddFragment extends Fragment {
     private EditText wordDetailEditText;
     private Button submitButton;
     private Button backButton;
-    private String writer = "Taron";
+    private String writer;
     private String URL = "http://13.209.140.171/";
     private String TAG = "WordAddFragment";
-
+    String email;
+    WordAddFragment(String email,String nickName){
+        this.email = email;
+        writer = nickName;
+    }
+    WordAddFragment(){}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,11 +20,14 @@ public class MainActivity extends AppCompatActivity implements OnAddClickListene
     private WordAddFragment wordAddFragment;
     private TranslationFragment translationFragment;
     private MyPageFragment myPageFragment;
+    private String email;
+    private String nickName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_menu);
+        getSharedPreference();
         init();
         searchWordFragment = new SearchWordFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.container_MainActivity, searchWordFragment).commit();
@@ -57,9 +61,9 @@ public class MainActivity extends AppCompatActivity implements OnAddClickListene
         searchWordFragment = new SearchWordFragment();
         wordQuizFragment = new WordQuizFragment();
         coinedWordFragment = new CoinedWordFragment();
-        wordAddFragment = new WordAddFragment();
+        wordAddFragment = new WordAddFragment(email,nickName);
         translationFragment = new TranslationFragment();
-        myPageFragment = new MyPageFragment();
+        myPageFragment = new MyPageFragment(email,nickName);
     }
 
     @Override
@@ -70,5 +74,10 @@ public class MainActivity extends AppCompatActivity implements OnAddClickListene
     @Override
     public void backButtonOnclick() {
         getSupportFragmentManager().beginTransaction().replace(R.id.container_MainActivity, coinedWordFragment).commit();
+    }
+    public void getSharedPreference(){
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo",MODE_PRIVATE);
+        email = sharedPreferences.getString("email","");
+        nickName = sharedPreferences.getString("nickname","");
     }
 }
