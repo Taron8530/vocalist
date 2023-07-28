@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tab_search"
+        android:enabled="true"
+        android:icon="@drawable/ic_word"
+        android:title="단어 검색"/>
+
+    <item
+        android:id="@+id/tab_quiz"
+        android:enabled="true"
+        android:icon="@drawable/ic_quiz_foreground"
+        android:title="맞춤법 퀴즈"/>
+    <item
+        android:id="@+id/tab_coined_word"
+        android:enabled="true"
+        android:icon="@drawable/ic_coined_word_foreground"
+        android:title="신조어 확인하기"/>
+    <item
+        android:id="@+id/tab_translation"
+        android:enabled="true"
+        android:icon="@drawable/ic_translation_foreground"
+        android:title="번역"/>
+    <item
+        android:id="@+id/tab_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_profile_foreground"
+        android:title="마이페이지"/>
+</menu>
