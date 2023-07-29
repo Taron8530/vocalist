@@ -45,7 +45,6 @@ public class WordQuizFragment extends Fragment {
     }
     public void init(){
         goRandomQuizButton = root.findViewById(R.id.goRandomQuiz);
-        goSpellingQuizButton = root.findViewById(R.id.goSpellingQuiz);
         maxScore = root.findViewById(R.id.randomQuizMaxScore);
     }
     public void setListener(){

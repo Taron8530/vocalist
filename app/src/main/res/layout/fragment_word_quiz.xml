@@ -10,63 +10,37 @@
         android:id="@+id/textView7"
         android:layout_width="250dp"
         android:layout_height="70dp"
-        android:layout_marginTop="100dp"
-        android:textSize="25dp"
+        android:layout_marginTop="228dp"
         android:gravity="center"
         android:text="랜덤 신조어 퀴즈 풀기"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textview8"
-        android:layout_width="250dp"
-        android:layout_height="70dp"
-        android:text="맞춤법 퀴즈 풀기"
-        android:textSize="25dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.192"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.156" />
-
-    <TextView
-        android:id="@+id/randomQuizMaxScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:padding="10dp"
-        android:text="최대 점수"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/goRandomQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="232dp"
         android:background="@drawable/test_layout_item"
         android:text="문제 풀기"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/goSpellingQuiz"
+    <TextView
+        android:id="@+id/randomQuizMaxScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:background="@drawable/test_layout_item"
-        android:text="문제 풀기"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:text="최대 점수"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toEndOf="@+id/textview8"
-        app:layout_constraintTop_toBottomOf="@+id/goRandomQuiz" />
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

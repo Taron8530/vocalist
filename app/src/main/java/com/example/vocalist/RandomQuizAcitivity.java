@@ -37,9 +37,10 @@ public class RandomQuizAcitivity extends AppCompatActivity {
     private String TAG = "RandomQuizActivity";
     private String URL = "http://13.209.140.171/";
     private Handler handler;
-    private int secondsPassed = 30;
+    private int secondsPassed = 5;
     private int score = 0;
     private TextView scoreTextView;
+    private boolean threadStop = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +94,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
         }
     }
     private final Runnable updateTextView = new Runnable() {
+
         @Override
         public void run() {
             if (secondsPassed > 0) {
@@ -100,12 +102,13 @@ public class RandomQuizAcitivity extends AppCompatActivity {
                 secondsPassed--;
                 handler.postDelayed(this, 1000);
             } else {
-                handler.removeCallbacks(this);
                 secondsPassed = 0;
-                Toast.makeText(RandomQuizAcitivity.this,"게임 오버 3초 뒤에 나가집니다.",Toast.LENGTH_SHORT).show();
-                handler.postDelayed(this,3000);
+                timerTextView.setText(String.format("남은 시간: %d초", secondsPassed));
+                threadStop = true;
                 setSharedPreference();
-                handler = null;
+                Toast.makeText(RandomQuizAcitivity.this,"게임 오버",Toast.LENGTH_SHORT).show();
+                handler.postDelayed(this,3000);
+                handler.removeCallbacks(updateTextView);
             }
         }
     };
