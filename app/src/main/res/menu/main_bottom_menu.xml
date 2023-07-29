@@ -15,7 +15,7 @@
         android:id="@+id/tab_coined_word"
         android:enabled="true"
         android:icon="@drawable/ic_coined_word_foreground"
-        android:title="신조어 확인하기"/>
+        android:title="신조어검색"/>
     <item
         android:id="@+id/tab_translation"
         android:enabled="true"

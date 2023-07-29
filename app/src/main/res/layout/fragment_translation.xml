@@ -7,14 +7,15 @@
     tools:context=".TranslationFragment">
     <TextView
         android:id="@+id/koreanTextView"
-        android:layout_width="120dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="한국어"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/changeImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,7 +71,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
-        android:text="번역"
+        android:background="@drawable/test_layout_item"
+        android:text="번역하기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEditText" />
@@ -80,7 +82,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/change"
+        android:src="@drawable/ic_change_foreground"
         app:layout_constraintEnd_toStartOf="@+id/spinner"
         app:layout_constraintStart_toEndOf="@+id/koreanTextView"
         app:layout_constraintTop_toTopOf="parent" />

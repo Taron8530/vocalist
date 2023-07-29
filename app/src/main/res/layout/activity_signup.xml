@@ -4,6 +4,218 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SignupActivity">
+
+    <TextView
+        android:id="@+id/signUpMain_signupActivity"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/mainfont"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="회원가입"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cancel_signupActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cancel_signupActivity"
+        app:layout_constraintTop_toTopOf="@+id/cancel_signupActivity"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/emailWrite_signupActivity"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/test_layout_item"
+        android:fontFamily="@font/subfont"
+        android:hint="이메일을 입력하세요"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpMain_signupActivity" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpBtn_signupActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:background="#9999FF"
+        android:fontFamily="@font/mainfont"
+        android:padding="10dp"
+        android:text="회원가입"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwCheckText_signupActivity" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/emailCheck_signupActivity"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/main"
+        android:fontFamily="@font/mainfont"
+        android:padding="10dp"
+        android:text="중복확인"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/emailWrite_signupActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/emailWrite_signupActivity"
+        app:layout_constraintTop_toTopOf="@+id/emailWrite_signupActivity" />
+
+    <TextView
+        android:id="@+id/pwCheckText_signupActivity"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/subfont"
+        app:layout_constraintEnd_toEndOf="@+id/secondPasswordCheckImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pwDubleCheck_signupActivity"
+        app:layout_constraintTop_toBottomOf="@+id/pwDubleCheck_signupActivity" />
+
+    <TextView
+        android:id="@+id/emailCheckText_signupActivity"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/subfont"
+        app:layout_constraintEnd_toEndOf="@+id/emailCheck_signupActivity"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/emailWrite_signupActivity"
+        app:layout_constraintTop_toBottomOf="@+id/emailWrite_signupActivity" />
+
+    <EditText
+        android:id="@+id/pwDubleCheck_signupActivity"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/test_layout_item"
+        android:inputType="textPassword"
+        android:fontFamily="@font/subfont"
+        android:hint="비밀번호를 한번 더 입력하세요"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstPasswordCheckText_signupActivity" />
+
+    <EditText
+        android:id="@+id/passwordWrite_signupActivity"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/test_layout_item"
+        android:fontFamily="@font/subfont"
+        android:inputType="textPassword"
+        android:hint="비밀번호를 입력하세요"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nicknameCheckText_signupActivity" />
+
+    <TextView
+        android:id="@+id/firstPasswordCheckText_signupActivity"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/subfont"
+        app:layout_constraintEnd_toEndOf="@+id/passwordCheckImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/passwordWrite_signupActivity"
+        app:layout_constraintTop_toBottomOf="@+id/passwordWrite_signupActivity" />
+
+    <TextView
+        android:id="@+id/nicknameCheckText_signupActivity"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/subfont"
+        app:layout_constraintEnd_toEndOf="@+id/nicknameCheck_signupActivity"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nicknameWrite_signupActivity"
+        app:layout_constraintTop_toBottomOf="@+id/nicknameWrite_signupActivity" />
+
+    <EditText
+        android:id="@+id/nicknameWrite_signupActivity"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:layout_weight="1"
+        android:background="@drawable/test_layout_item"
+        android:fontFamily="@font/subfont"
+        android:hint="2글자 이상 10글자 이하의 닉네임"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailCheckText_signupActivity" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nicknameCheck_signupActivity"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/main"
+        android:fontFamily="@font/mainfont"
+        android:padding="10dp"
+        android:text="중복확인"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/nicknameWrite_signupActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/nicknameWrite_signupActivity"
+        app:layout_constraintTop_toTopOf="@+id/nicknameWrite_signupActivity" />
+
+
+    <ImageView
+        android:id="@+id/cancel_signupActivity"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/signUpMain_signupActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/ic_back_foreground"/>
+
+    <ImageView
+        android:id="@+id/passwordCheckImage"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="36dp"
+        android:tag="0"
+        app:layout_constraintBottom_toBottomOf="@+id/passwordWrite_signupActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/passwordWrite_signupActivity"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/close" />
+
+    <ImageView
+        android:id="@+id/secondPasswordCheckImage"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="36dp"
+        android:tag="0"
+        app:layout_constraintBottom_toBottomOf="@+id/pwDubleCheck_signupActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pwDubleCheck_signupActivity"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/close" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

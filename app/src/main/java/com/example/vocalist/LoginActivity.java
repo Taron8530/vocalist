@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -23,8 +24,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginActivity extends AppCompatActivity {
     private EditText idEditText;
     private EditText passwordEditText;
+    private TextView signUp;
     private Button submit;
     private Retrofit retrofit;
+
     private String URL = "http://13.209.140.171/";
     private String TAG = "LoginActivity";
 
@@ -32,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        idCheck();
         init();
         initListener();
 
@@ -40,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         idEditText = findViewById(R.id.idEdit_loginActivity);
         passwordEditText = findViewById(R.id.pwEdit_loginActivity);
         submit = findViewById(R.id.loginOk_loginActivity);
+        signUp = findViewById(R.id.signUp_loginActivity);
+
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -85,12 +91,26 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this,SignupActivity.class);
+                startActivity(i);
+            }
+        });
     }
     public void putAccountInfo(String email,String nickname){
         SharedPreferences preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("email",email);
         editor.putString("nickname",nickname);
-        editor.commit();
+        editor.apply();
+    }
+    public void idCheck(){
+        SharedPreferences preferences = getSharedPreferences("UserInfo", MODE_PRIVATE);
+        if(!preferences.getString("email","").equals("")){
+            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(i);
+        }
     }
 }
