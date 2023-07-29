@@ -18,6 +18,10 @@ public interface ApiInterface {
     Call<CoinedWordPojoClass> searchCoinedWord(
             @Query("search") String word
     );
+    @GET("MyWordLoad.php")
+    Call<CoinedWordPojoClass> searchMyWord(
+            @Query("nickName") String nickname
+    );
     @GET("WordLoad10.php")
     Call<CoinedWordPojoClass> searchCoinedShowWord(
     );
@@ -33,4 +37,6 @@ public interface ApiInterface {
             @Field("email") String email,
             @Field("pw") String password
     );
+    @GET("QuizWordRequest.php")
+    Call<RandomQuizPojoClass> randomQuiz();
 }

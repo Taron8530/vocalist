@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("email",email);
         editor.putString("nickname",nickname);
+        editor.putInt("score",0);
         editor.apply();
     }
     public void idCheck(){
