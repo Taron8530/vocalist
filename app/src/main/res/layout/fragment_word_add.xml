@@ -6,48 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".WordAddFragment">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/word_Edittext_WordAddFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:hint="신조어를 입력해주세요."
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/submit_WordAddFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="확인"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wordDetailEditText_WordAddFragment" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/wordDetailEditText_WordAddFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
-        android:hint="설명을 적어주세요."
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/back_Button_WordAddFragment"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/ic_back_foreground"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="신조어 등록"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintStart_toEndOf="@+id/back_Button_WordAddFragment"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="418dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/test_layout_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="당신이 아는 신조어를 등록해보세요! \n ex) 갑통알 : '갑자기 통장을 보니 알바를 해야할 것 같다'의 줄임말입니다."
+            android:textSize="20dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/word_Edittext_WordAddFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="신조어를 입력해주세요."
+            android:padding="20dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/wordDetailEditText_WordAddFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="설명을 적어주세요."
+            android:padding="20dp" />
+
+        <Button
+            android:id="@+id/submit_WordAddFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/test_layout_item"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="확인" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

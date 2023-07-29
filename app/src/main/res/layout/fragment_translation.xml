@@ -46,8 +46,7 @@
         android:layout_marginEnd="10dp"
         android:background="@drawable/test_layout_item"
         android:gravity="center"
-        android:text="번역"
-        android:textColor="@color/black"
+        android:hint="번역"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,16 +63,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/translationButton"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
+        android:textColor="@color/main"
         android:background="@drawable/test_layout_item"
+        android:textSize="25dp"
         android:text="번역하기"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEditText" />
 

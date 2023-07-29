@@ -92,9 +92,11 @@ public class TranslationFragment extends Fragment {
         translationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BackgroundTask task = new BackgroundTask();
-                String tmp = inputEditText.getText().toString();
-                task.execute(tmp);
+                if(!inputEditText.getText().toString().equals("")){
+                    BackgroundTask task = new BackgroundTask();
+                    String tmp = inputEditText.getText().toString();
+                    task.execute(tmp);
+                }
             }
         });
     }

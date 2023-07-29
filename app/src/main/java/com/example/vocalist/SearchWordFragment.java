@@ -103,7 +103,7 @@ public class SearchWordFragment extends Fragment {
     }
     public void startShowData(){
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<WordPojoClass> call = apiInterface.searchWord(getResources().getString(R.string.wordApiKey),"사람","json");
+        Call<WordPojoClass> call = apiInterface.searchWord(getResources().getString(R.string.wordApiKey),"벌","json");
         call.enqueue(new Callback<WordPojoClass>() {
             @Override
             public void onResponse(Call<WordPojoClass> call, Response<WordPojoClass> response) {

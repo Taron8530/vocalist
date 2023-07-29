@@ -52,6 +52,7 @@ public class CoinedWordFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         init();
         initListener();
+        startShowData();
     }
     @Override
     public void onAttach(@NonNull Context context) {
@@ -123,7 +124,7 @@ public class CoinedWordFragment extends Fragment {
     }
     public void startShowData(){
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<CoinedWordPojoClass> call = apiInterface.searchCoinedWord("나무");
+        Call<CoinedWordPojoClass> call = apiInterface.searchCoinedShowWord();
         call.enqueue(new Callback<CoinedWordPojoClass>() {
             @Override
             public void onResponse(Call<CoinedWordPojoClass> call, Response<CoinedWordPojoClass> response) {
