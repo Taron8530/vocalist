@@ -1,7 +1,10 @@
 package com.example.vocalist;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -95,6 +98,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
     }
     private final Runnable updateTextView = new Runnable() {
 
+        @RequiresApi(api = Build.VERSION_CODES.P)
         @Override
         public void run() {
             if (secondsPassed > 0) {
@@ -107,7 +111,6 @@ public class RandomQuizAcitivity extends AppCompatActivity {
                 threadStop = true;
                 setSharedPreference();
                 Toast.makeText(RandomQuizAcitivity.this,"게임 오버",Toast.LENGTH_SHORT).show();
-                handler.postDelayed(this,3000);
                 handler.removeCallbacks(updateTextView);
             }
         }
@@ -142,6 +145,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
         });
     }
     public void setSharedPreference(){
+
         SharedPreferences sharedPreferences = getSharedPreferences("UserInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         int score = sharedPreferences.getInt("score",0);
@@ -149,6 +153,18 @@ public class RandomQuizAcitivity extends AppCompatActivity {
             editor.putInt("score",this.score);
             editor.commit();
         }
-        finish();
+        showDialog();
+    }
+    public void showDialog(){
+        AlertDialog.Builder dlg = new AlertDialog.Builder(RandomQuizAcitivity.this);
+        dlg.setTitle("게임 오버"); //제목
+        dlg.setMessage("정답은 [ "+answer+" ] 이였습니다!"); // 메시지//
+//                버튼 클릭시 동작
+        dlg.setPositiveButton("확인",new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        dlg.show();
     }
 }
