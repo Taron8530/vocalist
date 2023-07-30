@@ -40,7 +40,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
     private String TAG = "RandomQuizActivity";
     private String URL = "http://13.209.140.171/";
     private Handler handler;
-    private int secondsPassed = 5;
+    private int secondsPassed = 15;
     private int score = 0;
     private TextView scoreTextView;
     private boolean threadStop = false;
@@ -78,7 +78,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
                     Toast.makeText(RandomQuizAcitivity.this,"답을 입력해주세요",Toast.LENGTH_SHORT).show();
                 }else{
                     if(inputAnswer.getText().toString().equals(answer)){
-                        secondsPassed = 30;
+                        secondsPassed = 15;
                         Toast.makeText(RandomQuizAcitivity.this,"정답입니다.",Toast.LENGTH_SHORT).show();
                         newQuiz();
                         score += 1;

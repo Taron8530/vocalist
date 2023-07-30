@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -108,14 +109,19 @@ public class SearchWordFragment extends Fragment {
             @Override
             public void onResponse(Call<WordPojoClass> call, Response<WordPojoClass> response) {
                 if(response.isSuccessful()){
-                    Log.d(TAG, "onResponse: "+response.body().getChannel().getItems().get(0).getSense().getDefinition());
-                    adapter.setList((ArrayList<WordPojoClass.Item>) response.body().getChannel().getItems());
-                    adapter.notifyDataSetChanged();
+                    if(response.body() != null){
+                        Log.d(TAG, "onResponse: "+response.body().getChannel().getItems().get(0).getSense().getDefinition());
+                        adapter.setList((ArrayList<WordPojoClass.Item>) response.body().getChannel().getItems());
+                        adapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(getContext(), "검색 결과가 없습니다.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<WordPojoClass> call, Throwable t) {
+                Toast.makeText(getContext(), "검색 결과가 없습니다.", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "onFailure: "+t);
             }
         });

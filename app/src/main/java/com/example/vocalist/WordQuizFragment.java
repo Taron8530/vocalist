@@ -34,7 +34,7 @@ public class WordQuizFragment extends Fragment {
         super.onResume();
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         int score = sharedPreferences.getInt("score",0);
-        maxScore.setText("최고 점수 : "+score);
+        maxScore.setText("내 점수 : "+score+" 점");
     }
 
     @Override

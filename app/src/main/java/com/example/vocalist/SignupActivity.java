@@ -31,9 +31,10 @@ import okhttp3.Response;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private  String emailValidation = "^[a-zA-Z0-9._%+-]+@(naver|gmail)\\.com$";
+    private  String emailValidation = "^[a-zA-Z0-9._%+-]+@(naver|gmail|daum|hanmail)+(.com|.net)$";
+
     private String pwValidation = "^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[`~!@$!%*#^?&\\\\(\\\\)\\\\-_=+])(?!.*[^a-zA-z0-9`~!@$!%*#^?&\\\\(\\\\)\\\\-_=+]).{8,12}$";
-    private String nickNameValidation = "^(?!(?:[0-9]+)$)([a-z]|[가-힣]|[0-9가-힣a-z]){2,10}$";
+    private String nickNameValidation = "^(?!(?:[0-9]+)$)([a-z]|[가-힣]|[0-9가-힣a-z] |[A-Z]){2,10}$";
 
     String TAG = "signUpActivity";
 

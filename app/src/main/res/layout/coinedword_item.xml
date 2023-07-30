@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:fontFamily="@font/mainfont"
             android:padding="10dp"
             android:text="TextView" />
 
@@ -31,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
+            android:fontFamily="@font/subfont"
             android:padding="10dp"
             android:text="TextView" />
 
@@ -39,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
+            android:fontFamily="@font/subfont"
             android:padding="10dp"
             android:text="TextView" />
 
@@ -46,6 +49,7 @@
             android:id="@+id/dataTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/subfont"
             android:padding="5dp"
             android:gravity="right"
             android:text="TextView" />

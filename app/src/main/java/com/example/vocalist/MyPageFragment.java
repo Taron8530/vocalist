@@ -114,6 +114,10 @@ public class MyPageFragment extends Fragment {
                         adapter.setList(list);
                         adapter.notifyDataSetChanged();
                     }
+                    if(response.body().getData().size() <= 0){
+                        TextView textView = root.findViewById(R.id.showComment_Mypage);
+                        textView.setVisibility(View.VISIBLE);
+                    }
                 }
             }
 
