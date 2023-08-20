@@ -118,6 +118,24 @@ public class CoinedWordFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                Log.d(TAG, "onQueryTextSubmit: "+ newText);
+                ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+                Call<CoinedWordPojoClass> call = apiInterface.searchCoinedWord(newText);
+                call.enqueue(new Callback<CoinedWordPojoClass>() {
+                    @Override
+                    public void onResponse(Call<CoinedWordPojoClass> call, Response<CoinedWordPojoClass> response) {
+                        if(response.isSuccessful()){
+                            Log.d(TAG, "onResponse: "+response);
+                            adapter.setList((ArrayList<CoinedWordPojoClass.Data>) response.body().getData());
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CoinedWordPojoClass> call, Throwable t) {
+                        Log.d(TAG, "onFailure: "+t);
+                    }
+                });
                 return true;
             }
         });

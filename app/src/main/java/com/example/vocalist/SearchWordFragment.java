@@ -98,6 +98,24 @@ public class SearchWordFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                Log.d(TAG, "onQueryTextSubmit: "+ newText);
+                ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+                Call<WordPojoClass> call = apiInterface.searchWord(getResources().getString(R.string.wordApiKey),newText,"json");
+                call.enqueue(new Callback<WordPojoClass>() {
+                    @Override
+                    public void onResponse(Call<WordPojoClass> call, Response<WordPojoClass> response) {
+                        if(response.isSuccessful()){
+                            Log.d(TAG, "onResponse: "+response.body().getChannel().getItems().get(0).getSense().getDefinition());
+                            adapter.setList((ArrayList<WordPojoClass.Item>) response.body().getChannel().getItems());
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<WordPojoClass> call, Throwable t) {
+                        Log.d(TAG, "onFailure: "+t);
+                    }
+                });
                 return true;
             }
         });
