@@ -27,7 +27,7 @@
   - 로그인 레이아웃
 
 ## 개발 환경 ⚙️
-- **tools**
+- **Tools**
   - Android Studio
   - Visual Studio Code
 - **Language**
