@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -44,6 +45,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
     private int score = 0;
     private TextView scoreTextView;
     private boolean threadStop = false;
+    private InputMethodManager imm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         scoreTextView.setText("스코어 : "+ score);
+        imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         newQuiz();
         startTimer();
         initListener();
@@ -77,6 +80,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
                 if(inputAnswer.getText().toString().equals("")){
                     Toast.makeText(RandomQuizAcitivity.this,"답을 입력해주세요",Toast.LENGTH_SHORT).show();
                 }else{
+                    imm.hideSoftInputFromWindow(inputAnswer.getWindowToken(), 0);
                     if(inputAnswer.getText().toString().equals(answer)){
                         secondsPassed = 15;
                         Toast.makeText(RandomQuizAcitivity.this,"정답입니다.",Toast.LENGTH_SHORT).show();

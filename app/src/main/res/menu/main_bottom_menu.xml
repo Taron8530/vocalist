@@ -10,7 +10,7 @@
         android:id="@+id/tab_quiz"
         android:enabled="true"
         android:icon="@drawable/ic_quiz_foreground"
-        android:title="맞춤법 퀴즈"/>
+        android:title="신조어 퀴즈"/>
     <item
         android:id="@+id/tab_coined_word"
         android:enabled="true"

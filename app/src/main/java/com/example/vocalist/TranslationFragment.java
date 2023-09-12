@@ -1,5 +1,7 @@
 package com.example.vocalist;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -10,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,6 +41,7 @@ public class TranslationFragment extends Fragment {
     String wordGetText;
 
     String postParams;
+    InputMethodManager imm;
 
     String english = "source=ko&target=en&text=";
     String japanese = "source=ko&target=ja&text=";
@@ -70,6 +74,8 @@ public class TranslationFragment extends Fragment {
         inputEditText = root.findViewById(R.id.inputEditText);
         outputEditText = root.findViewById(R.id.outputEditText);
         translationButton = root.findViewById(R.id.translationButton);
+        imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 getActivity(), android.R.layout.simple_spinner_item, items);
@@ -96,6 +102,7 @@ public class TranslationFragment extends Fragment {
                     BackgroundTask task = new BackgroundTask();
                     String tmp = inputEditText.getText().toString();
                     task.execute(tmp);
+                    imm.hideSoftInputFromWindow(inputEditText.getWindowToken(), 0);
                 }
             }
         });
