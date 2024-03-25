@@ -308,7 +308,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void emailChkSendServer(){
-        HttpUrl.Builder urlBuilder_email = HttpUrl.parse("http://13.209.140.171/emailCheck.php").newBuilder();
+        HttpUrl.Builder urlBuilder_email = HttpUrl.parse("http://43.200.172.115/emailCheck.php").newBuilder();
         String url = urlBuilder_email.build().toString();
 
         RequestBody formBody_email = new FormBody.Builder()
@@ -342,7 +342,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void nickNameChkSendServer(){
-        HttpUrl.Builder urlBuilder_nickName = HttpUrl.parse("http://13.209.140.171/nickNameCheck.php").newBuilder();
+        HttpUrl.Builder urlBuilder_nickName = HttpUrl.parse("http://43.200.172.115/nickNameCheck.php").newBuilder();
         String url = urlBuilder_nickName.build().toString();
 
         RequestBody formBody_nickName = new FormBody.Builder()
@@ -378,7 +378,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
     public void signUpSendServer(){
-        HttpUrl.Builder urlBuilder_signUp = HttpUrl.parse("http://13.209.140.171/SignUp.php").newBuilder();
+        HttpUrl.Builder urlBuilder_signUp = HttpUrl.parse("http://43.200.172.115/SignUp.php").newBuilder();
         String url = urlBuilder_signUp.build().toString();
 
         RequestBody formBody_signUp = new FormBody.Builder()

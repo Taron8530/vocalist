@@ -46,7 +46,7 @@ public class MyPageFragment extends Fragment {
     private View root;
 
     private String TAG = "MyPageFragment";
-    private String URL = "http://13.209.140.171/";
+    private String URL = "http://43.200.172.115/";
 
     private String duplication;
     private Retrofit retrofit;
@@ -158,7 +158,7 @@ public class MyPageFragment extends Fragment {
     }
 
     public void withdrawalSendServer(){
-        HttpUrl.Builder urlBuilder_withdrawal = HttpUrl.parse("http://13.209.140.171/GoodBye.php").newBuilder();
+        HttpUrl.Builder urlBuilder_withdrawal = HttpUrl.parse("http://43.200.172.115/GoodBye.php").newBuilder();
         String url = urlBuilder_withdrawal.build().toString();
 
         RequestBody formBody_withdrawal = new FormBody.Builder()

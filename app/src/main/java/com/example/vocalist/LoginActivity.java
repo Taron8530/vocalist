@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button submit;
     private Retrofit retrofit;
 
-    private String URL = "http://13.209.140.171/";
+    private String URL = "http://43.200.172.115/";
     private String TAG = "LoginActivity";
 
     @Override

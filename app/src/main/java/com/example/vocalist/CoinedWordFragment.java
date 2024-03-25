@@ -37,7 +37,7 @@ public class CoinedWordFragment extends Fragment {
     private RecyclerView recyclerView;
     private CoinedWordAdapter adapter;
     private ArrayList<CoinedWordPojoClass.Data> list;
-    private String URL = "http://13.209.140.171/";
+    private String URL = "http://43.200.172.115/";
     private String TAG = "CoinedWordFragment";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

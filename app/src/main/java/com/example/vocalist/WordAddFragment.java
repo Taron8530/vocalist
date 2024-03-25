@@ -33,7 +33,7 @@ public class WordAddFragment extends Fragment {
     private Button submitButton;
     private Button backButton;
     private String writer;
-    private String URL = "http://13.209.140.171/";
+    private String URL = "http://43.200.172.115/";
     private String TAG = "WordAddFragment";
     String email;
     WordAddFragment(String email,String nickName){

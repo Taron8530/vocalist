@@ -39,7 +39,7 @@ public class RandomQuizAcitivity extends AppCompatActivity {
     private TextView word;
     private String answer;
     private String TAG = "RandomQuizActivity";
-    private String URL = "http://13.209.140.171/";
+    private String URL = "http://43.200.172.115/";
     private Handler handler;
     private int secondsPassed = 15;
     private int score = 0;
