@@ -81,7 +81,7 @@ public class MyPageFragment extends Fragment {
         emailTextView = root.findViewById(R.id.myEmailTextView);
         nickNameTextView = root.findViewById(R.id.myNickNameView);
         emailTextView.setText(email);
-        nickNameTextView.setText(nickName);
+        nickNameTextView.setText(nickName+" 님 환영합니다.");
         recyclerView = root.findViewById(R.id.recyclerView);
         Gson gson = new GsonBuilder()
                 .setLenient()

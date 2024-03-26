@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
@@ -32,29 +36,21 @@ import java.net.URLEncoder;
 
 public class TranslationFragment extends Fragment {
 
+    String TAG = "TranslationFragment";
+//    String apiKey = "AIzaSyADnu2zgfpVtjHvcBROhswCsAEkqKS4fxk";
+
     EditText inputEditText;
     TextView outputEditText;
     Button translationButton;
 
     Spinner spinner;
 
-    String wordGetText;
 
     String postParams;
     InputMethodManager imm;
 
-    String english = "source=ko&target=en&text=";
-    String japanese = "source=ko&target=ja&text=";
-    String simplifiedChinese = "source=ko&target=zh-CN&text=";
-    String traditionalChinese = "source=ko&target=zh-TW&text=";
-    String spanish = "source=ko&target=es&text=";
-    String french = "source=ko&target=fr&text=";
-    String german = "source=ko&target=de&text=";
-    String russian = "source=ko&target=ru&text=";
-    String italian = "source=ko&target=it&text=";
-    String vietnamese = "source=ko&target=vi&text=";
-    String thai = "source=ko&target=th&text=";
-    String indonesian = "source=ko&target=id&text=";
+    String targetLanguage = "en";
+    Translate translate;
 
     String [] items = {"영어", "일본어", "중국어 간체", "중국어 번체", "스페인어", "프랑스어", "독일어", "러시아어", "이탈리아어", "베트남어", "태국어", "인도네시아어"};
     private View root;
@@ -75,6 +71,10 @@ public class TranslationFragment extends Fragment {
         outputEditText = root.findViewById(R.id.outputEditText);
         translationButton = root.findViewById(R.id.translationButton);
         imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
+        new Thread(() -> {
+            translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
+        }).start();
+
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -86,7 +86,32 @@ public class TranslationFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                wordGetText = items[position];
+                String wordGetText = items[position];
+                if(wordGetText.equals("영어")){
+                    targetLanguage = "en";
+                }else if(wordGetText.equals("일본어")){
+                    targetLanguage = "ja";
+                }else if(wordGetText.equals("중국어 간체")){
+                    targetLanguage = "zh";
+                }else if(wordGetText.equals("중국어 번체")){
+                    targetLanguage = "zh-TW";
+                }else if(wordGetText.equals("스페인어")){
+                    targetLanguage = "es";
+                }else if(wordGetText.equals("프랑스어")){
+                    targetLanguage = "fr";
+                }else if(wordGetText.equals("독일어")){
+                    targetLanguage = "de";
+                }else if(wordGetText.equals("러시아어")){
+                    targetLanguage = "ru";;
+                }else if(wordGetText.equals("이탈리아어")){
+                    targetLanguage = "it";
+                }else if(wordGetText.equals("베트남어")){
+                    targetLanguage = "vi";
+                }else if(wordGetText.equals("태국어")){
+                    targetLanguage = "th";
+                }else if(wordGetText.equals("인도네시아어")){
+                    targetLanguage = "id";
+                }
             }
 
             @Override
@@ -98,90 +123,20 @@ public class TranslationFragment extends Fragment {
         translationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: 클릭됨"+inputEditText.getText().toString().equals(""));
                 if(!inputEditText.getText().toString().equals("")){
-                    BackgroundTask task = new BackgroundTask();
+                    Log.d(TAG, "onClick: 클11릭됨"+inputEditText.getText().toString().equals(""));
                     String tmp = inputEditText.getText().toString();
-                    task.execute(tmp);
-                    imm.hideSoftInputFromWindow(inputEditText.getWindowToken(), 0);
+
+                    new Thread(() -> {
+                        Translation translation = translate.translate(tmp, Translate.TranslateOption.targetLanguage(targetLanguage), Translate.TranslateOption.sourceLanguage("ko"));
+                        String answer = translation.getTranslatedText();
+                        Log.d(TAG, "onClick: 번역 결과"+answer);
+                        outputEditText.setText(answer);
+                    }).start();
+
                 }
             }
         });
-    }
-    class BackgroundTask extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... str) {
-            String inputTest = str[0];
-            String clientId = "dkqVOngV0scCK5jkEnM4";
-            String clientSecret = "26kqKNfHmn";
-            String result = "";
-            try {
-                String text = URLEncoder.encode(inputTest, "UTF-8");
-                String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
-                URL url = new URL(apiURL);
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("POST");
-                con.setRequestProperty("X-Naver-Client-Id", clientId);
-                con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
-
-                if(wordGetText.equals("영어")){
-                    postParams = english + text;
-                }else if(wordGetText.equals("일본어")){
-                    postParams = japanese + text;
-                }else if(wordGetText.equals("중국어 간체")){
-                    postParams = simplifiedChinese + text;
-                }else if(wordGetText.equals("중국어 번체")){
-                    postParams = traditionalChinese + text;
-                }else if(wordGetText.equals("스페인어")){
-                    postParams = spanish + text;
-                }else if(wordGetText.equals("프랑스어")){
-                    postParams = french + text;
-                }else if(wordGetText.equals("독일어")){
-                    postParams = german + text;
-                }else if(wordGetText.equals("러시아어")){
-                    postParams = russian + text;
-                }else if(wordGetText.equals("이탈리아어")){
-                    postParams = italian + text;
-                }else if(wordGetText.equals("베트남어")){
-                    postParams = vietnamese + text;
-                }else if(wordGetText.equals("태국어")){
-                    postParams = thai + text;
-                }else if(wordGetText.equals("인도네시아어")){
-                    postParams = indonesian + text;
-                }
-                con.setDoOutput(true);
-                DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-                wr.writeBytes(postParams);
-                wr.flush();
-                wr.close();
-                //번역 결과 받아온다.
-                int responseCode = con.getResponseCode();
-                BufferedReader br;
-                if (responseCode == 200) { // 정상 호출
-                    br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                } else {  // 에러 발생
-                    br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-                }
-                String inputLine;
-                StringBuffer response = new StringBuffer();
-                while ((inputLine = br.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                br.close();
-                result = response.toString();
-            } catch (Exception e) {
-                result = "번역 실패";
-                System.out.println(e);
-            }
-            return result;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            JsonParser parser = new JsonParser();
-            JsonElement element = parser.parse(s);
-            String tmp = element.getAsJsonObject().get("message").getAsJsonObject().get("result").getAsJsonObject().get("translatedText").getAsString();
-            outputEditText.setText(tmp);
-        }
     }
 }

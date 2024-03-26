@@ -112,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
         if(!preferences.getString("email","").equals("")){
             Intent i = new Intent(LoginActivity.this,MainActivity.class);
             startActivity(i);
+            finish();
         }
     }
 }
